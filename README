@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Welcome to your Appcelerator Titanium Mobile Project
 
 This is a blank project.  Start by editing your application's app.js to 
@@ -16,3 +17,6 @@ Titanium is Copyright (c) 2009-2010 by Appcelerator, Inc. All Rights Reserved.
 Titanium is licensed under the Apache Public License (Version 2). Please
 see the LICENSE file for the full license.
 
+=======
+test
+>>>>>>> 9eca5d4c0392c9786142f139c379e6fb75ef5eaf
