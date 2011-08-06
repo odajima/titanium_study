@@ -5,11 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.278000 seconds on emulator to get ready
+[DEBUG] waited 0.480000 seconds on emulator to get ready
 [DEBUG] com.sample.twiter installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING CREATED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\message_window.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\message_window.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\table_view.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\table_view.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\titwitter.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\titwitter.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\appicon.png
@@ -28,9 +27,113 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/KS_nav_views.png
 [DEBUG] from resource zip => assets/Resources/app.js
 [DEBUG] from resource zip => assets/Resources/appicon.png
+[DEBUG] from resource zip => assets/Resources/dark_TV.png
+[DEBUG] from resource zip => assets/Resources/dark_add.png
+[DEBUG] from resource zip => assets/Resources/dark_airplane.png
+[DEBUG] from resource zip => assets/Resources/dark_alarm.png
+[DEBUG] from resource zip => assets/Resources/dark_appcelerator.png
+[DEBUG] from resource zip => assets/Resources/dark_arrow_closed.png
+[DEBUG] from resource zip => assets/Resources/dark_attach.png
+[DEBUG] from resource zip => assets/Resources/dark_automobile.png
+[DEBUG] from resource zip => assets/Resources/dark_bird.png
+[DEBUG] from resource zip => assets/Resources/dark_bldg.png
+[DEBUG] from resource zip => assets/Resources/dark_bolt.png
+[DEBUG] from resource zip => assets/Resources/dark_book.png
+[DEBUG] from resource zip => assets/Resources/dark_bug.png
+[DEBUG] from resource zip => assets/Resources/dark_burst.png
+[DEBUG] from resource zip => assets/Resources/dark_camera.png
+[DEBUG] from resource zip => assets/Resources/dark_cart.png
+[DEBUG] from resource zip => assets/Resources/dark_case.png
+[DEBUG] from resource zip => assets/Resources/dark_chat.png
+[DEBUG] from resource zip => assets/Resources/dark_check-2.png
+[DEBUG] from resource zip => assets/Resources/dark_check.png
+[DEBUG] from resource zip => assets/Resources/dark_clock.png
+[DEBUG] from resource zip => assets/Resources/dark_coins.png
+[DEBUG] from resource zip => assets/Resources/dark_comment.png
+[DEBUG] from resource zip => assets/Resources/dark_contract.png
+[DEBUG] from resource zip => assets/Resources/dark_doc.png
+[DEBUG] from resource zip => assets/Resources/dark_download.png
+[DEBUG] from resource zip => assets/Resources/dark_dropper.png
+[DEBUG] from resource zip => assets/Resources/dark_expand.png
+[DEBUG] from resource zip => assets/Resources/dark_filter.png
+[DEBUG] from resource zip => assets/Resources/dark_flag.png
+[DEBUG] from resource zip => assets/Resources/dark_flagpin-x.png
+[DEBUG] from resource zip => assets/Resources/dark_flagpin.png
+[DEBUG] from resource zip => assets/Resources/dark_flame.png
+[DEBUG] from resource zip => assets/Resources/dark_folder.png
+[DEBUG] from resource zip => assets/Resources/dark_game.png
+[DEBUG] from resource zip => assets/Resources/dark_gear.png
+[DEBUG] from resource zip => assets/Resources/dark_gears.png
+[DEBUG] from resource zip => assets/Resources/dark_globe.png
+[DEBUG] from resource zip => assets/Resources/dark_grid.png
+[DEBUG] from resource zip => assets/Resources/dark_half-full.png
+[DEBUG] from resource zip => assets/Resources/dark_heart.png
+[DEBUG] from resource zip => assets/Resources/dark_home.png
+[DEBUG] from resource zip => assets/Resources/dark_icecream.png
+[DEBUG] from resource zip => assets/Resources/dark_in.png
+[DEBUG] from resource zip => assets/Resources/dark_info.png
+[DEBUG] from resource zip => assets/Resources/dark_jump.png
+[DEBUG] from resource zip => assets/Resources/dark_key.png
+[DEBUG] from resource zip => assets/Resources/dark_link.png
+[DEBUG] from resource zip => assets/Resources/dark_list---add.png
+[DEBUG] from resource zip => assets/Resources/dark_list.png
+[DEBUG] from resource zip => assets/Resources/dark_locate.png
+[DEBUG] from resource zip => assets/Resources/dark_mail.png
+[DEBUG] from resource zip => assets/Resources/dark_meat.png
+[DEBUG] from resource zip => assets/Resources/dark_more-2.png
+[DEBUG] from resource zip => assets/Resources/dark_more.png
+[DEBUG] from resource zip => assets/Resources/dark_music.png
+[DEBUG] from resource zip => assets/Resources/dark_no.png
+[DEBUG] from resource zip => assets/Resources/dark_out.png
+[DEBUG] from resource zip => assets/Resources/dark_package-out.png
+[DEBUG] from resource zip => assets/Resources/dark_pages.png
+[DEBUG] from resource zip => assets/Resources/dark_pause.png
+[DEBUG] from resource zip => assets/Resources/dark_pegman---no.png
+[DEBUG] from resource zip => assets/Resources/dark_pegman---yes.png
+[DEBUG] from resource zip => assets/Resources/dark_pegman.png
+[DEBUG] from resource zip => assets/Resources/dark_pencil.png
+[DEBUG] from resource zip => assets/Resources/dark_phone.png
+[DEBUG] from resource zip => assets/Resources/dark_pictures.png
+[DEBUG] from resource zip => assets/Resources/dark_pin-2.png
+[DEBUG] from resource zip => assets/Resources/dark_pin.png
+[DEBUG] from resource zip => assets/Resources/dark_play.png
+[DEBUG] from resource zip => assets/Resources/dark_plus1.png
+[DEBUG] from resource zip => assets/Resources/dark_pointer.png
+[DEBUG] from resource zip => assets/Resources/dark_power.png
+[DEBUG] from resource zip => assets/Resources/dark_rain-cloud.png
+[DEBUG] from resource zip => assets/Resources/dark_reciprocate.png
+[DEBUG] from resource zip => assets/Resources/dark_refresh.png
+[DEBUG] from resource zip => assets/Resources/dark_search.png
+[DEBUG] from resource zip => assets/Resources/dark_shield.png
+[DEBUG] from resource zip => assets/Resources/dark_signal_trans.png
+[DEBUG] from resource zip => assets/Resources/dark_skip.png
+[DEBUG] from resource zip => assets/Resources/dark_skull.png
+[DEBUG] from resource zip => assets/Resources/dark_speaker.png
+[DEBUG] from resource zip => assets/Resources/dark_star.png
+[DEBUG] from resource zip => assets/Resources/dark_stats-bars.png
+[DEBUG] from resource zip => assets/Resources/dark_tag.png
+[DEBUG] from resource zip => assets/Resources/dark_target.png
+[DEBUG] from resource zip => assets/Resources/dark_text.png
+[DEBUG] from resource zip => assets/Resources/dark_thumb-down.png
+[DEBUG] from resource zip => assets/Resources/dark_thumb-up.png
+[DEBUG] from resource zip => assets/Resources/dark_tini.png
+[DEBUG] from resource zip => assets/Resources/dark_tray-up.png
+[DEBUG] from resource zip => assets/Resources/dark_up.png
+[DEBUG] from resource zip => assets/Resources/dark_warn-2.png
+[DEBUG] from resource zip => assets/Resources/dark_warn.png
+[DEBUG] from resource zip => assets/Resources/dark_wrench.png
+[DEBUG] from resource zip => assets/Resources/dark_x-2.png
+[DEBUG] from resource zip => assets/Resources/dark_x.png
 [DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/message_window.js
 [DEBUG] from resource zip => assets/Resources/table_view.js
+[DEBUG] from resource zip => assets/Resources/test.js
+[DEBUG] from resource zip => assets/Resources/titwitter.js
+[DEBUG] from resource zip => assets/Resources/win1.js
+[DEBUG] from resource zip => assets/Resources/win2.js
+[DEBUG] from resource zip => assets/Resources/win3.js
+[DEBUG] from resource zip => assets/Resources/win4.js
+[DEBUG] from resource zip => assets/Resources/win5.js
 [DEBUG] from resource zip => assets/tiapp.xml
 [DEBUG] from resource zip => res/drawable/appicon.png
 [DEBUG] from resource zip => res/drawable/background.png
@@ -61,6 +164,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.464000 seconds on emulator to get ready
+[DEBUG] waited 1.343000 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen
