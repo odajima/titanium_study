@@ -5,7 +5,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.480000 seconds on emulator to get ready
+[DEBUG] waited 0.910000 seconds on emulator to get ready
 [DEBUG] com.sample.twiter installed? False
 [INFO] Copying project resources..
 [TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\titwitter.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\titwitter.js
@@ -164,7 +164,5 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 1.343000 seconds on emulator to get ready
-[INFO] Waiting for the Android Emulator to become available
+[DEBUG] waited 0.796000 seconds on emulator to get ready
 [INFO] Installing application on emulator
-[INFO] Application installed. Launch from drawer on Home Screen

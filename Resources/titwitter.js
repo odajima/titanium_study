@@ -27,6 +27,24 @@ var TiTwitter = {};
 			width:48,
 			height:48
 		}));
+		
+		row.tweet = tweet;
+		row.addEventListener('click', function(e){
+			var t = e.rowData.tweet;
+			var url = 'http://twitter.com/' + t.user.screen_name + '/status/' + t.id_str;
+			if(Ti.Platform.osname === 'android'){
+				var intent = Ti.Android.createIntent({
+					action: Ti.Android.ACTION_SEND,
+					type: "text/plain"
+				});
+				intent.putExtra(Ti.Android.EXTRA_TEXT, url);
+				
+				var chooserIntent = Ti.Android.createIntentChooser(intent, "Choose App");
+				Ti.Android.currentActivity.startActivity(chooserIntent);
+			}else{
+					Ti.Platform.openURL(url);
+			}
+		});
 		return row;
 	}
 	
@@ -90,9 +108,9 @@ var TiTwitter = {};
 	};
 	
 	// 検索結果取得
-	TiTwitter.loadSearchResult = function(queryString){
+	TiTwitter.loadSearchResult = function(apiParam){
 		var url = 'http://search.twitter.com/search.json';
-		TiTwitter.callAPI('GET',url,{q:queryString},function(status,responseText){
+		TiTwitter.callAPI('GET',url,apiParam,function(status,responseText){
 			TiTwitter.UI.tableView.data = [];
 			var json = JSON.parse(responseText);
 			for(var i=0; i<json.results.length; i++){

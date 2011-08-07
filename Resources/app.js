@@ -35,6 +35,7 @@ var tab3 = Titanium.UI.createTab({
     window:win3
 }); 
 var win4 = Titanium.UI.createWindow({
+    url: 'win4.js',
     title:'@TitaniumJP',
     backgroundColor:'#fff'
 });

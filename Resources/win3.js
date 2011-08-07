@@ -5,8 +5,8 @@ Ti.include('titwitter.js');
 win.add(TiTwitter.UI.tableView);
 
 TiTwitter.UI.setRefreshButton(function(){
-	TiTwitter.loadSearchResult('#Titanium');
+	TiTwitter.loadSearchResult({q:'#Titanium'});
 });
 
-TiTwitter.loadSearchResult('#Titanium');
+TiTwitter.loadSearchResult({q:'#Titanium'});
 
