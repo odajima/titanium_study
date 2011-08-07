@@ -5,10 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.910000 seconds on emulator to get ready
+[DEBUG] waited 0.452000 seconds on emulator to get ready
 [DEBUG] com.sample.twiter installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\titwitter.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\titwitter.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\app.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\app.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\appicon.png
@@ -23,6 +23,10 @@ Logfile initialized
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\app-unsigned.apk
+[DEBUG] from resource zip => assets/Resources/lib/oauth.js
+[DEBUG] from resource zip => assets/Resources/lib/oauth_adapter.js
+[DEBUG] from resource zip => assets/Resources/lib/sha1.js
+[DEBUG] from resource zip => assets/Resources/lib/twitter_api.js
 [DEBUG] from resource zip => assets/Resources/KS_nav_ui.png
 [DEBUG] from resource zip => assets/Resources/KS_nav_views.png
 [DEBUG] from resource zip => assets/Resources/app.js
@@ -126,6 +130,9 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/dark_x.png
 [DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/message_window.js
+[DEBUG] from resource zip => assets/Resources/readme.markdown
+[DEBUG] from resource zip => assets/Resources/tab1.js
+[DEBUG] from resource zip => assets/Resources/tab2.js
 [DEBUG] from resource zip => assets/Resources/table_view.js
 [DEBUG] from resource zip => assets/Resources/test.js
 [DEBUG] from resource zip => assets/Resources/titwitter.js
@@ -164,5 +171,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.796000 seconds on emulator to get ready
+[DEBUG] waited 0.729000 seconds on emulator to get ready
 [INFO] Installing application on emulator
+[INFO] Application installed. Launch from drawer on Home Screen

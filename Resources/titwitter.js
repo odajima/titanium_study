@@ -30,6 +30,7 @@ var TiTwitter = {};
 		
 		row.tweet = tweet;
 		row.addEventListener('click', function(e){
+			/*
 			var t = e.rowData.tweet;
 			var url = 'http://twitter.com/' + t.user.screen_name + '/status/' + t.id_str;
 			if(Ti.Platform.osname === 'android'){
@@ -44,8 +45,109 @@ var TiTwitter = {};
 			}else{
 					Ti.Platform.openURL(url);
 			}
+			*/
+			var thistweet = e.rowData.tweet;
+			Ti.UI.currentTab.open(
+				TiTwitter.UI.createTweetWindow(thistweet)
+			);
 		});
 		return row;
+	}
+	
+	TiTwitter.UI.createTweetWindow =function(thisTweet){
+		var newWindow = Ti.UI.createWindow({
+			title: 'Tweet',
+			backgroundColor: '#fff'
+		});
+
+		
+		newWindow.add((function(){
+			var view = Ti.UI.createView({
+				top:0, height:80,
+				backgroundColor: '#ccc'
+			});
+			view.add(Ti.UI.createImageView({
+				image: thisTweet.user.profile_image_url,
+				top:8, left:8, width:64, height:64
+			}));
+			view.add(Ti.UI.createLabel({
+				top:8, left:80, right:8, height:'auto', width:'auto',
+				text: thisTweet.user.name
+			}));
+			view.add(Ti.UI.createLabel({
+				top:30, left:80, height:'auto', width:'auto',
+				text: '@' + thisTweet.user.screen_name,
+				font:{fontsize:11}
+			}));
+		
+			// 共有ボタン作成
+			var button = Ti.UI.createButton({
+				top:'auto', right:8, height:'auto', width:'auto',
+				title: '共有'
+			});
+			view.add(button);
+
+			// ボタンイベント設置
+			button.addEventListener('click', function(e){
+				var url = 'http://twitter.com/' + thisTweet.user.screen_name + '/status/' + thisTweet.id_str;
+				if(Ti.Platform.osname === 'android'){
+					var intent = Ti.Android.createIntent({
+						action: Ti.Android.ACTION_SEND,
+						type: "text/plain"
+					});
+					intent.putExtra(Ti.Android.EXTRA_TEXT, url);
+					
+					Ti.Android.currentActivity.startActivity(intent, "Choose App");
+				}else{
+					var dialog = Ti.UI.createOptionDialog({
+						title: '処理を選択してください',
+						options: ["Safari","Twitter for iPhone","E-Mail","Read it Later","キャンセル"],
+						cancel: 4
+					});
+					Ti.Platform.openURL(url);
+				}
+	
+			});
+			return view;
+		})());
+		// tweet
+		newWindow.add((function(){
+			var webView = Ti.UI.createWebView({
+				top:80
+			});
+			webView.html = '<html><body style="padding:8px"><div>'
+				+ thisTweet.text + '</div>'
+				+ '<div>' + String.formatDate(new Date(thisTweet.created_at), "long") + " "
+				+ String.formatTime(new Date(thisTweet.created_at))
+				+ '</div></body></html>';
+			return webView;
+		})());
+		// button
+		/*
+		newWindow.add((function(){
+			var button = Ti.UI.createButton({
+				title: '共有'
+			});
+			button.addEventListener('click', function(e){
+				var url = 'http://twitter.com/' + thisTweet.user.screen_name + '/status/' + thisTweet.id_str;
+				if(Ti.Platform.osname === 'android'){
+					var intent = Ti.Android.createIntent({
+						action: Ti.Android.ACTION_SEND,
+						type: "text/plain"
+					});
+					intent.putExtra(Ti.Android.EXTRA_TEXT, url);
+					
+					Ti.Android.currentActivity.startActivity(intent, "Choose App");
+				}else{
+						Ti.Platform.openURL(url);
+				}
+	
+			});
+			return button;
+		})());
+		*/
+		return newWindow;				
+
 	}
 	
 	// 再取得ボタン生成
