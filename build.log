@@ -5,10 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.452000 seconds on emulator to get ready
+[DEBUG] waited 0.283000 seconds on emulator to get ready
 [DEBUG] com.sample.twiter installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\app.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\app.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\Resources\titwitter.js => C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\titwitter.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\y_nakanishi\My Documents\titaniumLearning\sample_twitter\build\android\bin\assets\Resources\appicon.png
@@ -130,11 +130,13 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/dark_x.png
 [DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/message_window.js
+[DEBUG] from resource zip => assets/Resources/post.js
 [DEBUG] from resource zip => assets/Resources/readme.markdown
 [DEBUG] from resource zip => assets/Resources/tab1.js
 [DEBUG] from resource zip => assets/Resources/tab2.js
 [DEBUG] from resource zip => assets/Resources/table_view.js
 [DEBUG] from resource zip => assets/Resources/test.js
+[DEBUG] from resource zip => assets/Resources/timeline.js
 [DEBUG] from resource zip => assets/Resources/titwitter.js
 [DEBUG] from resource zip => assets/Resources/win1.js
 [DEBUG] from resource zip => assets/Resources/win2.js
@@ -171,6 +173,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.729000 seconds on emulator to get ready
+[DEBUG] waited 0.458000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

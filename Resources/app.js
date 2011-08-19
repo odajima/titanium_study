@@ -20,6 +20,15 @@ var tab2 = Ti.UI.createTab({
 		url: 'tab2.js'
 	})
 });
+var tab3 = Titanium.UI.createTab({
+    //icon:'dark_search.png',
+    title:'タイムライン',
+    window:Ti.UI.createWindow({
+	    url: 'timeline.js',
+    	title:'タイムライン',
+    	backgroundColor:'#fff'
+	})
+}); 
 var tab5 = Titanium.UI.createTab({
     icon:'dark_search.png',
     title:'検索',
@@ -35,30 +44,9 @@ var tab5 = Titanium.UI.createTab({
  
 tabGroup.addTab(tab1);  
 tabGroup.addTab(tab2);
+tabGroup.addTab(tab3);
 tabGroup.addTab(tab5);  
 tabGroup.open();
 
-if(Ti.Platform.osname !== 'android'){
-	path_lib = 'lib';
-}else{
-	path_lib = '';
-}
-Ti.include("lib/twitter_api.js");
-Ti.App.twitterApi = new TwitterApi({
-	consumerKey: 'lVL9WygcRqyvy5IJ2smflA',
-	consumerSecret: 'W8sIlKabYT22Heok6gBolRVs3nrhy12OohcKw4I3XA'
-});
-var twitterApi = Ti.App.twitterApi;
-twitterApi.init();
 
-twitterApi.statuses_update({
-	onSuccess: function(responce){
-		alert('Tweet完了しました');
-		Ti.API.info(responce);
-	},
-	onError: function(error){
-		Ti.API.error(error);
-	},
-	parameters:{status:'テストTweet by twitter_api.js!'}
-});
 

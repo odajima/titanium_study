@@ -1,3 +1,28 @@
+if(Ti.Platform.osname !== 'android'){
+	path_lib = 'lib';
+}else{
+	path_lib = '';
+}
+Ti.include("lib/twitter_api.js");
+Ti.App.twitterApi = new TwitterApi({
+	consumerKey: 'lVL9WygcRqyvy5IJ2smflA',
+	consumerSecret: 'W8sIlKabYT22Heok6gBolRVs3nrhy12OohcKw4I3XA'
+});
+
+var twitterApi = Ti.App.twitterApi;
+twitterApi.init();
+/*
+twitterApi.statuses_update({
+	onSuccess: function(responce){
+		alert('Tweet完了しました');
+		Ti.API.info(responce);
+	},
+	onError: function(error){
+		Ti.API.error(error);
+	},
+	parameters:{status:'テストTweet by twitter_api.js!'}
+});
+*/
 var TiTwitter = {};
 (function(){
 	TiTwitter.UI = {};
@@ -146,8 +171,126 @@ var TiTwitter = {};
 			return button;
 		})());
 		*/
+		
+		if(Ti.Platform.osname !== 'android'){
+			newWindow.rightNavButton = (function(){
+				var button = Ti.UI.createButton({
+					systemButton: Ti.UI.iPhone.SystemButton.ACTION
+				});
+				button.addEventListener('click',function(){
+					TiTwitter.UI.showOptionDialog(thisTweet, url);
+				});
+				return button;
+			})
+		}
+		else{
+			newWindow.activity = Ti.Android.currentActivity;
+			if(newWindow.activity){
+				newWindow.activity.onCreateOptionsMenu = function(e){
+					var menu = e.menu;
+					var menuItem_reply = menu.add({title:"返信"});
+					menuItem_reply.setIcon("dark_pencil.png");
+					menuItem_reply.addEventListener("click",function(e){
+						TiTwitter.UI.replyWindow(thisTweet, 0);
+					});
+					var menuItem_inyo = menu.add({title:"引用"});
+					menuItem_inyo.setIcon("dark_pencil.png");
+					menuItem_inyo.addEventListener("click",function(e){
+						TiTwitter.UI.replyWindow(thisTweet, 1);
+					});
+					var menuItem_retweet = menu.add({title:"Retweet"});
+					menuItem_retweet.setIcon("dark_jump.png");
+					menuItem_retweet.addEventListener("click",function(e){
+						TiTwitter.UI.othersFunc(thisTweet, 2);
+					});
+					var menuItem_favorite = menu.add({title:"お気に入り"});
+					menuItem_favorite.setIcon("dark_list---add.png");
+					menuItem_favorite.addEventListener("click",function(e){
+						TiTwitter.UI.othersFunc(thisTweet, 3);
+					});
+				};
+			}
+		}
+		
 		return newWindow;				
 
+	}
+
+	// Android用
+	TiTwitter.UI.replyWindow = function(thisTweet, event_num){
+		var postWindow = Ti.UI.createWindow({
+			title:'返信する',
+			url:'post.js',
+			backgroundColor:'#fff'
+		});
+		
+		postWindow.init_text = '@' + thisTweet.user.screen_name + ' ' + ((event_num == 1) ? thisTweet.text : '');
+		postWindow.in_reply_to_status_id = thisTweet.id_str;
+		postWindow.open({
+			modal:true,
+			modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+			modalStyle:Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+		});
+	};
+	TiTwitter.UI.othersFunc = function(thisTweet, event_num){
+		var params = {
+			onSuccess:function(responce){
+				Ti.API.info(responce);
+			},
+			onError:function(error){
+				Ti.API.error(error);
+			},
+			id:thisTweet.id_str
+		};
+		if(event_num == 2){
+			twitterApi.statuses_retweet(params);
+		}
+		else{
+			twitterApi.favorites_create(params);
+		}
+	}
+	
+
+	TiTwitter.UI.showOptionDialog = function(thisTweet, url){
+		var dialog = Ti.UI.createOptionDialog({
+			title: '処理を選択してください。',
+			options:['返信','引用','Retweet','お気に入り','キャンセル'],
+			cancel:4
+		});
+		dialog.addEventListener('click',function(e){
+			if((e.index == 0) || (e.index == 1)){
+				var postWindow = Ti.UI.createWindow({
+					title:'返信する',
+					url:'post.js',
+					backgroundColor:'#fff'
+				});
+				postWindow.init_text = '@' + thisTweet.user.screen_name + ' ' + ((e.index == 1) ? thisTweet.text : '');
+				postWindow.in_reply_to_status_id = thisTweet.id_str;
+				postWindow.open({
+					modal:true,
+					modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+					modalStyle:Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+				});
+			}
+			else if((e.index == 2) || (e.index == 3)){
+				var params = {
+					onSuccess:function(responce){
+						Ti.API.info(responce);
+					},
+					onError:function(error){
+						Ti.API.error(error);
+					},
+					id:thisTweet.id_str
+				};
+				if(e.index == 2){
+					twitterApi.statuses_retweet(params);
+				}
+				else{
+					twitterApi.favorites_create(params);
+				}
+			}
+		});
+		dialog.show();
 	}
 	
 	// 再取得ボタン生成
@@ -225,4 +368,39 @@ var TiTwitter = {};
 			}
 		});
 	};
+	
+	TiTwitter.loadHomeTimeline = function(){
+		twitterApi.statuses_home_timeline({
+			onSuccess: function(tweets){
+				TiTwitter.UI.tableView.data = [];
+				for(var i=0;i<tweets.length; i++){
+					TiTwitter.UI.tableView.appendRow(TiTwitter.UI.createTableViewRow(tweets[i]));
+				}
+			},
+			onError: function(error){
+				Ti.API.error(error);
+			}
+		});
+	};
+
+	TiTwitter.postTweet = function(newStatus, in_reply_to_status_id){
+		params = {
+			onSuccess:function(responce){
+				Ti.API.info(responce);
+			},
+			onError:function(error){
+				Ti.API.error(error);
+			},
+			parameters:{
+				status:newStatus
+				}
+		};
+		params.url = 'http://api.twitter.com/1/statuses/update.json';
+		params.method = 'POST';
+		if(in_reply_to_status_id != null && in_reply_to_status_id > 0){
+			params.url = params.url + '?in_reply_to_status_id=' + in_reply_to_status_id;
+		}
+		return twitterAPI.callAPI(params);
+	};
 })();
+
